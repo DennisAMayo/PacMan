@@ -5,16 +5,16 @@ const pacArray = [
 ];
 const pacMen = [];
 
-function setToRandom(scale) {
+function setToRandom(min, max) {
   return {
-    x: Math.random() * scale,
-    y: Math.random() * scale,
+    x: Math.floor(Math.random() * (max - min + 1) + min),
+    y: Math.floor(Math.random() * (max - min + 1) + min),
   };
 }
 
 function makePac() {
-  let velocity = setToRandom(10); // {x:?, y:?}
-  let position = setToRandom(200);
+  let velocity = setToRandom(5,10); // {x:?, y:?}
+  let position = setToRandom(1,200);
   let mouth = 0;
   let counter = 0;
   let direction = 0;
@@ -23,7 +23,7 @@ function makePac() {
   let newimg = document.createElement('img');
   newimg.style.position = 'absolute';
   newimg.src = './assets/images/PacMan1.png';
-  newimg.width = Math.floor(Math.random() * (150 - 50 + 1) + 50)
+  newimg.width = Math.floor(Math.random() * (150 - 50 + 1) + 50);
 
   newimg.style.left = position.x;
   newimg.style.top = position.y;
